@@ -14,7 +14,7 @@ const MagicTiles = () => {
     if (audioRef.current) {
       setTimeout(() => {
         audioRef.current.play();
-      }, "200");
+      }, "100");
     }
 
     tileTimings.forEach((item, index) => {
