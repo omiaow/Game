@@ -1,34 +1,39 @@
-.magic-tiles-container {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.game-area {
-  position: relative;
-  width: 100%;
-  height: 800px;
-  margin: 20px auto;
-  border: 1px solid #ccc;
-  overflow: hidden;
-  background-color: #f0f0f0;
-}
-
-.tile {
-  width: 30%;
-  height: 80px;
+.background {
   background-color: red;
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.background .music {
+  rotate: 180deg;
+  width: 100%;
+  height: 24485px; /* Set height for one minute */
+  margin-top: calc(-24000px - 100vh); /* Start above the viewport */
+  position: relative; /* Allow positioning for animation */
+  animation: fall 60s linear forwards; /* Animation lasts for 1 minute */
+  background: yellow;
+}
+
+.background .music .tape {
+  width: 33.3%;
+  position: relative;
+
+  background-color: grey;
+}
+
+.background .music .tape .tile {
+  color: white;
+  border: 1px solid white;
+  width: calc(100% - 2px);
+  height: calc(150px - 2px);
   position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: fall 0.8s linear forwards;
+
+  background-color: black;
 }
 
 @keyframes fall {
-  from {
-    top: 0;
-  }
   to {
-    top: 100%;
+      margin-top: 100vh; /* Move to the original position */
   }
 }
