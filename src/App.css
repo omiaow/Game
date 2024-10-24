@@ -8,8 +8,8 @@
 .background .music {
   rotate: 180deg;
   width: 100%;
-  height: 24485px; /* Set height for one minute */
-  margin-top: calc(-24000px - 100vh); /* Start above the viewport */
+  height: 32000px; /* Set height for one minute */
+  margin-top: -32000px; /* Start above the viewport */
   position: relative; /* Allow positioning for animation */
   animation: fall 60s linear forwards; /* Animation lasts for 1 minute */
   background: yellow;
@@ -18,8 +18,6 @@
 .background .music .tape {
   width: 33.3%;
   position: relative;
-
-  background-color: grey;
 }
 
 .background .music .tape .tile {

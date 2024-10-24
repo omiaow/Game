@@ -1,8 +1,4 @@
-import { useState, useRef } from 'react';
-import './App.css';
-import musicFile from './music.mp3';
-
-const beats = [
+[
   {
     "expected": "0",
     "column": 1
@@ -728,57 +724,3 @@ const beats = [
     "column": 2
   }
 ]
-
-function App() {
-  const [start, setStart] = useState(false);
-  const audioRef = useRef(null);
-
-  const generateTiles = (list) => {
-    const column1 = []
-    const column2 = []
-    const column3 = []
-
-    const coeficient = 32000 / 60000
-
-    list.forEach(element => {
-      if (element.column === 1) {
-        const pixel = parseInt(element.expected) * coeficient
-        column1.push(<div className="tile" style={{ marginTop: `${pixel}px` }}>{element.expected}</div>)
-      }
-
-      if (element.column === 2) {
-        const pixel = element.expected * coeficient
-        column2.push(<div className="tile" style={{ marginTop: `${pixel}px` }}>{element.expected}</div>)
-      }
-      
-      if (element.column === 3) {
-        const pixel = element.expected * coeficient
-        column3.push(<div className="tile" style={{ marginTop: `${pixel}px` }}>{element.expected}</div>)
-      }
-    })
-
-    if (audioRef.current) {
-      setTimeout(() => {
-        audioRef.current.play();
-      }, "1000");
-    }
-
-    return <div className="music">
-      <div className="tape" style={{ marginLeft: "0px" }}>{column1}</div>
-      <div className="tape" style={{ marginLeft: "33.3%" }}>{column2}</div>
-      <div className="tape" style={{ marginLeft: "66.6%" }}>{column3}</div>
-    </div>
-  }
-
-  return (
-    <div className="background">
-      <button onClick={() => setStart(true)}>
-        Start
-      </button>
-      {start ? generateTiles(beats) : ""}
-      <audio ref={audioRef} src={musicFile} />
-    </div>
-  );
-}
-
-export default App;
